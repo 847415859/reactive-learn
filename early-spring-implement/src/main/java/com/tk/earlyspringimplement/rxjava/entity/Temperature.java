@@ -1,4 +1,4 @@
-package com.tk.earlyspringimplement.entity;
+package com.tk.earlyspringimplement.rxjava.entity;
 
 import lombok.Data;
 

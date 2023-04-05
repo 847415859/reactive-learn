@@ -16,9 +16,11 @@
         el.innerHTML = message;
         document.getElementById("events").appendChild(el);
     }
-    var eventSource = new EventSource("http://localhost:8080/temperature-stream");
+    var eventSource = new EventSource("http://localhost:8080/emit/temperature-stream");
     eventSource.onmessage = e => {
-        const fixed = Number(e.data).toFixed(2);
+        console.log(e.data)
+        let jsonObj = JSON.parse(e.data)
+        const fixed = Number(jsonObj.value).toFixed(2);
         add('Temperature: ' + fixed + ' C');
     }
     eventSource.onopen = e => add('Connection opened');

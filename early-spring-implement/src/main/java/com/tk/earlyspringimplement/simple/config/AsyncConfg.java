@@ -1,4 +1,4 @@
-package com.tk.earlyspringimplement.config;
+package com.tk.earlyspringimplement.simple.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;

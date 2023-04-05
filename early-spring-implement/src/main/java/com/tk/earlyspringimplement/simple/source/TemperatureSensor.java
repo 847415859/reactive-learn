@@ -1,6 +1,6 @@
-package com.tk.earlyspringimplement.source;
+package com.tk.earlyspringimplement.simple.source;
 
-import com.tk.earlyspringimplement.entity.Temperature;
+import com.tk.earlyspringimplement.simple.entity.Temperature;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 import java.util.Random;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 /**
  * @Description:  事件触发源
@@ -30,9 +29,9 @@ public class TemperatureSensor implements ApplicationContextAware,Runnable {
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         this.applicationContext = applicationContext;
-        for (int i = 0; i < thread; i++) {
-            executorService.execute(this);
-        }
+        // for (int i = 0; i < thread; i++) {
+        //     executorService.execute(this);
+        // }
     }
 
     @Override
