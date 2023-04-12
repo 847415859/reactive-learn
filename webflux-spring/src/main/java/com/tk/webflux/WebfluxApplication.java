@@ -23,8 +23,7 @@ public class WebfluxApplication {
     }
 
     @Bean
-    public static RouterFunction<ServerResponse>
-    routes(PasswordHandlerFunction handlerFunction) {
+    public static RouterFunction<ServerResponse>  routes(PasswordHandlerFunction handlerFunction) {
         return route(POST("/password"), handlerFunction);
     }
     @Bean

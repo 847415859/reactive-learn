@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.HandlerFunction;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
+import reactor.core.CoreSubscriber;
 import reactor.core.publisher.Mono;
 
 /**
@@ -29,8 +30,8 @@ public class PasswordHandlerFunction implements HandlerFunction {
                 .doOnNext(item -> log.info("onNext:{}",item))
                 .flatMap(isMatched -> isMatched
                         ? ServerResponse.ok().build()
-                        : ServerResponse.status(HttpStatus.EXPECTATION_FAILED)
-                                .build()).then(Mono.empty());
+                        : ServerResponse.status(HttpStatus.EXPECTATION_FAILED).build())
+                .then(Mono.empty());
 
     }
 }
