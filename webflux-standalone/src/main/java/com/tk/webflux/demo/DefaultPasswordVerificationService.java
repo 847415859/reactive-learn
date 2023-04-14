@@ -1,11 +1,14 @@
 package com.tk.webflux.demo;
 
 import com.tk.webflux.dto.PasswordDTO;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.client.WebClient;
+import org.springframework.web.reactive.function.client.*;
 import reactor.core.publisher.Mono;
+
+import java.util.function.Predicate;
 
 import static org.springframework.http.HttpStatus.EXPECTATION_FAILED;
 
@@ -46,4 +49,15 @@ public class DefaultPasswordVerificationService implements PasswordVerificationS
                     });
 
         }
+
+
+    public static void main(String[] args) {
+        WebClient webClient = WebClient.builder().baseUrl("aa")
+                .filter(new ExchangeFilterFunction() {
+                    @Override
+                    public Mono<ClientResponse> filter(ClientRequest request, ExchangeFunction next) {
+                        return null;
+                    }
+                }).build();
+    }
 }
